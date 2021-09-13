@@ -8,12 +8,13 @@ export const config = {
   projectId: "codecamp-446bd",
   storageBucket: "codecamp-446bd.appspot.com",
   messagingSenderId: "910012870523",
-  appId: "1:910012870523:web:4786082086c65019e657de",
-  measurementId: "G-X4R52HW92T",
+  appId: "1:910012870523:web:26fff320047ea9e3e657de",
+  measurementId: "G-R1WX1G4HR0",
 };
 
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
 
+export const dbservice = firebase.firestore();
 export default firebase;

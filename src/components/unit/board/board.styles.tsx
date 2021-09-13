@@ -55,9 +55,7 @@ export const BoardTitle = styled.div`
 
 export const BasketWrapper = styled.div`
   width: 100%;
-  padding-top: 12px;
   background-color: violet;
-
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;

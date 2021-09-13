@@ -1,38 +1,17 @@
-// import firebase from "firebase";
-// import { useState } from "react";
 import BasketUI from "./basket.presenter";
-// import { useCollection } from "react-firebase-hooks/firestore";
-// import { Modal } from "antd";
+import { useCollection } from "react-firebase-hooks/firestore";
+import { useRef } from "react";
+import { dbservice } from "../../../commons/firebase/firebase";
 
-export default function basket() {
-  // const [isAdd, setIsAdd] = useState(false);
-  // const [basketTitle, setBasketTitle] = useState("");
-  // const [value] = useCollection(firebase.firestore().collection("basket"), {
-  //   snapshotListenOptions: { includeMetadataChanges: true },
-  // });
-  // const onClickAddBasket = () => {
-  //   setIsAdd((prev) => !prev);
-  //   console.log(isAdd);
-  // };
-  // const onChangeAddBasket = (event) => {
-  //   setBasketTitle(event.target.value);
-  //   console.log(basketTitle);
-  // };
-  // const onClickCreateBasket = async () => {
-  //   const basketId = firebase.firestore().collection("basket").doc().id;
-  //   try {
-  //     const value = {
-  //       basketId: basketId,
-  //       title: basketTitle,
-  //       createdAt: new Date(),
-  //     };
-  //     await firebase.firestore().collection("basket").doc(basketId).set(value);
-  //     setIsAdd(false);
-  //   } catch (err) {
-  //     Modal.error({
-  //       content: err.message,
-  //     });
-  //   }
-  // };
-  return <BasketUI />;
+export default function Basket() {
+  const basketDetail = useRef<HTMLDivElement>(null);
+
+  const [value] = useCollection(
+    dbservice.collection("basket").orderBy("createdAt", "asc"),
+    {
+      snapshotListenOptions: { includeMetadataChanges: true },
+    }
+  );
+
+  return <BasketUI value={value} basketDetail={basketDetail} />;
 }

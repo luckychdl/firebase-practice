@@ -62,3 +62,15 @@ export const BasketBtnDiv = styled.div`
   flex-direction: row;
   justify-content: space-between;
 `;
+export const DetailWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+export const ShowDetail = styled.div`
+  height: 15px;
+`;
+export const AlignWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 165px;
+`;
